@@ -1,0 +1,32 @@
+#springboot ���������ļ�
+
+#tomcat�˿ں�
+server:
+  port: 8888
+
+spring:
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mydb?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: root
+    password: 123456
+
+  resources:
+    static-locations: classpath:/static/
+
+  profiles: default
+  freemarker:
+    cache: false
+    content-type: text/html;charset=UTF-8
+    expose-request-attributes: true
+    expose-session-attributes: true
+    request-context-attribute: request
+    suffix: .ftl
+
+#自己定义常量
+app:
+  msg: sword art online,${app.username},${app.level},${app.port}
+  username: kirito
+  level: 99
+  port: ${random.int[1024,9999]}
